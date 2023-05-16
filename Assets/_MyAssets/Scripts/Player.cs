@@ -13,15 +13,18 @@ public class Player : MonoBehaviour
 
     private float _canFire = -1f;// le temps entre les tires
                                  //  private bool _isTripleActive = false;
-                                 //   private float _cadenceInitiale;
+                                   private float _cadenceInitiale;
                                  //  private Animator _anim;
 
     //  private GameObject _shield;
 
-    [SerializeField] private int _viesJoueurs = 5;
+    //[SerializeField] private int _viesJoueurs = 5;
+    HealthBar2 BarreDevie = new HealthBar2();
     void Start()
     {
-        //   _cadenceInitiale = _fireRate;
+        BarreDevie.max = 100;
+        BarreDevie.valeur = 100;
+           _cadenceInitiale = _fireRate;
         //  _shield = transform.GetChild(0).gameObject;
         //   _anim = GetComponent<Animator>();
     }
@@ -75,16 +78,19 @@ public class Player : MonoBehaviour
     {
         //  if (!_shield.activeSelf)// si j'ai pas de bouclié on enleve une vie et change l'image
         {
-            _viesJoueurs--;
-               UIManager uIManager = FindObjectOfType<UIManager>();
-                uIManager.ChangeLivesDisplayImage(_viesJoueurs);
+            BarreDevie.valeur -= 10;
+           // _viesJoueurs--;
+             //  UIManager uIManager = FindObjectOfType<UIManager>();
+            //  uIManager.ChangeLivesDisplayImage(_viesJoueurs);
+        
+
             }
           /*  else
             {
                 _shield.SetActive(false);
             }
           */
-            if (_viesJoueurs < 1)
+            if (BarreDevie.valeur ==0)
             {
                 SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
                 //même chose de facon différente

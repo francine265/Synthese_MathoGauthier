@@ -8,16 +8,12 @@ public class HealthBar2 : MonoBehaviour
 {
 
     static Image Barre;
-   static TextMeshProUGUI txt;
+    static TextMeshProUGUI txt;
     public float max { get; set; }
     private float Valeur;
    
     // Start is called before the first frame update
-    void Start()
-    {
-        Barre = GetComponent<Image>();
-        txt = GetComponent<TextMeshProUGUI>();
-    }
+ 
 
     // Update is called once per frame
     public float valeur
@@ -29,9 +25,16 @@ public class HealthBar2 : MonoBehaviour
             if (Barre != null)
             {
                 Barre.fillAmount = (1 / max) * Valeur;
-                txt.text = Barre.fillAmount * 100 + "%";
+              //  txt = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+                txt.text = Barre.fillAmount * 100  + " % ";
             }
 
         }
+    }
+    void Start()
+    {
+        Barre = GetComponent<Image>();
+        txt =transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        txt.text = (Barre.fillAmount ) + " % ";
     }
 }

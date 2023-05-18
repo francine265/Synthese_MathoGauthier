@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ennemy : MonoBehaviour
+public class GrosEnnemy : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private float _speed = 6f;
@@ -27,7 +27,7 @@ public class Ennemy : MonoBehaviour
     }
     private void TirEnnemi()
     {
-        if (_uiManager.getScore() > 500)
+        if (_uiManager.getScore() >700)
         {
             if (Time.time > _canFire)
             {

@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _laserPrefab = default;
       [SerializeField] private GameObject _triplelaserPrefab = default;
     [SerializeField] private float _fireRate = 0.5f; // cadence de tire
-                                                        [SerializeField] private GameObject _explosionPrefab = default;
+                                                     //   [SerializeField] private GameObject _explosionPrefab = default;
                                                      //    [SerializeField] private AudioClip _laserSound = default;*/
 
     private float _canFire = -1f;// le temps entre les tires
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         BarreDevie.max = 100;
         BarreDevie.valeur = 100;
         _cadenceInitiale = _fireRate;
-          _shield = transform.GetChild(0).gameObject;
+          _shield = transform.GetChild(4).gameObject;
         //   _anim = GetComponent<Animator>();
     }
 
@@ -50,11 +50,11 @@ public class Player : MonoBehaviour
             //  AudioSource.PlayClipAtPoint(_laserSound, Camera.main.transform.position, 0.3f);
             if (!_isTripleActive)
             {
-                Instantiate(_laserPrefab, transform.position + new Vector3(0f, 1.15f, 0f), Quaternion.identity);
+                Instantiate(_laserPrefab, (transform.position + new Vector3(0f, 1.15f, 0f)), Quaternion.identity);
             }
              else
             {
-                    Instantiate(_triplelaserPrefab, transform.position + new Vector3(0f, 3.5f, 0f), Quaternion.identity);
+                    Instantiate(_triplelaserPrefab, (transform.position + new Vector3(0f, 3.5f, 0f)), Quaternion.identity);
             }
 
         }

@@ -102,6 +102,10 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void ChargerJeu()
+    {
+        SceneManager.LoadScene(1);
+    }
     IEnumerator FinPartie()
     {
         yield return new WaitForSeconds(2f);

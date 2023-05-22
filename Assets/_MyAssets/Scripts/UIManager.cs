@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 {
 
     [SerializeField] private TextMeshProUGUI _txtScore = default;
+    [SerializeField] private TextMeshProUGUI _txtTemps = default;
     [SerializeField] private GameObject _pausePanel = default;
     [SerializeField] private float _vitesseEnnemi = 6.0f;
     [SerializeField] private float _augVitesseParNiveau = 2.0f;
@@ -16,6 +17,8 @@ public class UIManager : MonoBehaviour
     private bool _pauseOn = false;
     private int _score = 0;
     private bool _estChanger = false;
+    private bool _keyDown =false;
+         float currentTime;
 
 
     private void Start()
@@ -42,6 +45,18 @@ public class UIManager : MonoBehaviour
         {
             _estChanger = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)|| Input.GetKeyDown(KeyCode.Space))
+        {
+            _keyDown = true;
+        }
+        if (_keyDown == true)
+        {
+
+            currentTime += Time.deltaTime;
+            _txtTemps.text = currentTime.ToString("f2");
+
+        }
         /*  if (_txtRestart.gameObject.activeSelf && Input.GetKeyDown(KeyCode.R))
           {
               SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -57,7 +72,7 @@ public class UIManager : MonoBehaviour
               Time.timeScale = 0;
               _pauseOn = true;
           }
-          else if ((Input.GetKeyDown(KeyCode.Escape) && !_txtRestart.gameObject.activeSelf) && _pauseOn)
+          else if ((Input.GetKeyDown(KeyCode.Escape) ) && _pauseOn)
           {
               _pausePanel.SetActive(false);
               Time.timeScale = 1;
@@ -70,6 +85,10 @@ public class UIManager : MonoBehaviour
         _txtScore.text = "Score : " + _score.ToString();
     }
 
+    public void AjouterScore(int points) {
+        _score += points;
+        UpdateScore();
+    }
 
     private void GameOverSequence()
     {
@@ -99,7 +118,16 @@ public class UIManager : MonoBehaviour
         return _vitesseEnnemi;
     }
 
+    public void Quitter()
+    {
+        Application.Quit();
+    }
 
+    public void ChangerScene()
+    {
+        int index = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(index + 1);
+    }
     
 }
 

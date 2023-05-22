@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
 {
 
     [SerializeField] private TextMeshProUGUI _txtScore = default;
+    [SerializeField] private GameObject _panneauInfo = default;
+    [SerializeField] private GameObject _panneauReglages = default;
     [SerializeField] private TextMeshProUGUI _txtTemps = default;
     [SerializeField] private GameObject _pausePanel = default;
     [SerializeField] private float _vitesseEnnemi = 6.0f;
@@ -18,7 +20,9 @@ public class UIManager : MonoBehaviour
     private int _score = 0;
     private bool _estChanger = false;
     private bool _keyDown =false;
-         float currentTime;
+    float currentTime;
+    private bool infoActif = false;
+    private bool reglagesActif = false;
 
 
     private void Start()
@@ -105,6 +109,22 @@ public class UIManager : MonoBehaviour
     public void ChargerJeu()
     {
         SceneManager.LoadScene(1);
+    }
+        public void ChargerInformations()
+    {
+        if(infoActif = false)
+        {
+        _panneauInfo.SetActive(true);
+        }
+        else
+         {
+        _panneauInfo.SetActive(false);
+        }
+        
+    }
+    public void ChargerReglages()
+    {
+        _panneauReglages.SetActive(true);
     }
     IEnumerator FinPartie()
     {

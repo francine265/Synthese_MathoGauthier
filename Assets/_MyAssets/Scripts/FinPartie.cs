@@ -5,11 +5,13 @@ using TMPro;
 public class FinPartie : MonoBehaviour
 {
     [SerializeField] TMP_Text _txtPointage = default;
+
     [SerializeField] TMP_Text _txtMeilleur = default;
 
     // Start is called before the first frame update
     void Start()
     {
+
         _txtPointage.text = "Pointage:" + PlayerPrefs.GetInt("pointage");
         if (PlayerPrefs.HasKey("meilleur"))
         {

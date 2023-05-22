@@ -97,12 +97,14 @@ public class Player : MonoBehaviour
                 _shield.SetActive(false);
             }
           
-            if (BarreDevie.valeur ==0)
+            if (BarreDevie.valeur == 0)
             {
                 SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
+                UIManager uiManager = FindObjectOfType<UIManager>();
                 //même chose de facon différente
                 //SpawnManager spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
                 spawnManager.FinPartie();
+               uiManager.GameOverSequence();
                 //    Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }

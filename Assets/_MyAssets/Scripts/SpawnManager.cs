@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -47,7 +46,6 @@ public class SpawnManager : MonoBehaviour
     public void FinPartie()
     {
         _stopSpawn = true;
-         SceneManager.LoadScene(2);
     }
     public void mortJoueur()
     {

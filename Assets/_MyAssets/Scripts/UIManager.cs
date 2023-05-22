@@ -54,22 +54,14 @@ public class UIManager : MonoBehaviour
         {
             _keyDown = true;
         }
-        if (_keyDown == true)
+        if (_keyDown == true &&  SceneManager.GetActiveScene().name == "SampleScene" )
         {
 
             currentTime += Time.deltaTime;
             _txtTemps.text = currentTime.ToString("f2");
 
         }
-        /*  if (_txtRestart.gameObject.activeSelf && Input.GetKeyDown(KeyCode.R))
-          {
-              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-          }
-          else if (_txtRestart.gameObject.activeSelf && Input.GetKeyDown(KeyCode.Escape))
-          {
-              SceneManager.LoadScene(0);
-          }
-}*/
+
           if (Input.GetKeyDown(KeyCode.Escape)  && !_pauseOn)
           {
               _pausePanel.SetActive(true);

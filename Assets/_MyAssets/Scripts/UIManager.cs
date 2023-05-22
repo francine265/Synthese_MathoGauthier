@@ -90,11 +90,11 @@ public class UIManager : MonoBehaviour
         UpdateScore();
     }
 
-    private void GameOverSequence()
+    public void GameOverSequence()
     {
         PlayerPrefs.SetInt("pointage", _score);
         PlayerPrefs.Save();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
 

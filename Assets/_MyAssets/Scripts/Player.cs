@@ -99,9 +99,11 @@ public class Player : MonoBehaviour
             if (BarreDevie.valeur == 0)
             {
                 SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
+                UIManager uiManager = FindObjectOfType<UIManager>();
                 //même chose de facon différente
                 //SpawnManager spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
                 spawnManager.FinPartie();
+               uiManager.GameOverSequence();
                 //    Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }

@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     private int _score = 0;
     private bool _estChanger = false;
     private bool _keyDown =false;
-    float currentTime;
+    public float currentTime;
     private bool infoActif = false;
     private bool reglagesActif = false;
 
@@ -79,6 +79,10 @@ public class UIManager : MonoBehaviour
     private void UpdateScore()
     {
         _txtScore.text = "Score : " + _score.ToString();
+    }
+        public void GetTemps()
+    {
+        _txtTemps.text = currentTime.ToString("f2");
     }
 
     public void AjouterScore(int points) {

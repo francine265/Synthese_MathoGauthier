@@ -135,6 +135,10 @@ public class UIManager : MonoBehaviour
         _panneauReglages.SetActive(false);
         }
     }
+    public void FermerReglages()
+    {
+        _panneauReglages.SetActive(false);
+    }
     IEnumerator FinPartie()
     {
         yield return new WaitForSeconds(2f);

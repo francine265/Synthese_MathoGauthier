@@ -8,29 +8,19 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
 
-  //  [SerializeField] private int _score = default;
     [SerializeField] private TextMeshProUGUI _txtScore = default;
-  //  [SerializeField] private TextMeshProUGUI _txtGameOver = default;
-  //  [SerializeField] private TextMeshProUGUI _txtRestart = default;
-  //  [SerializeField] private TextMeshProUGUI _txtQuit = default;
-
-
     [SerializeField] private GameObject _pausePanel = default;
-    private bool _pauseOn = false;
-
     [SerializeField] private float _vitesseEnnemi = 6.0f;
     [SerializeField] private float _augVitesseParNiveau = 2.0f;
     [SerializeField] private int _pointageAugmentation = 500;
-
+    private bool _pauseOn = false;
     private int _score = 0;
     private bool _estChanger = false;
-    // Start is called before the first frame update
+
 
     private void Start()
     {
         _score = 0;
-      //  _txtGameOver.gameObject.SetActive(false);
-       
         UpdateScore();
     }
     public int getScore()
@@ -60,8 +50,8 @@ public class UIManager : MonoBehaviour
           {
               SceneManager.LoadScene(0);
           }
-
-          if ((Input.GetKeyDown(KeyCode.Escape) && !_txtRestart.gameObject.activeSelf) && !_pauseOn)
+}*/
+          if (Input.GetKeyDown(KeyCode.Escape)  && !_pauseOn)
           {
               _pausePanel.SetActive(true);
               Time.timeScale = 0;
@@ -72,14 +62,9 @@ public class UIManager : MonoBehaviour
               _pausePanel.SetActive(false);
               Time.timeScale = 1;
               _pauseOn = false;
-          }*/
+          }
+          
     }
-    public void AjouterScore(int points)
-    {
-        _score += points;
-        UpdateScore();
-    }
-
     private void UpdateScore()
     {
         _txtScore.text = "Score : " + _score.ToString();
@@ -88,27 +73,12 @@ public class UIManager : MonoBehaviour
 
     private void GameOverSequence()
     {
-        /*
-        _txtGameOver.gameObject.SetActive(true);
-        _txtRestart.gameObject.SetActive(true);
-        _txtQuit.gameObject.SetActive(true);
-        StartCoroutine(GameOverBlinkRoutine());*/
         PlayerPrefs.SetInt("pointage", _score);
         PlayerPrefs.Save();
         SceneManager.LoadScene(1);
     }
 
-    /* IEnumerator GameOverBlinkRoutine()
-     {
-        while (true)
-         {
-             _txtGameOver.gameObject.SetActive(true);
-             yield return new WaitForSeconds(0.7f);
-             _txtGameOver.gameObject.SetActive(false);
-             yield return new WaitForSeconds(0.7f);
-         }
-     }
-    */
+
     public void ChargerDepart()
     {
         SceneManager.LoadScene(0);
@@ -128,5 +98,8 @@ public class UIManager : MonoBehaviour
     {
         return _vitesseEnnemi;
     }
+
+
+    
 }
 

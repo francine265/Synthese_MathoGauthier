@@ -181,6 +181,4 @@ MonoBehaviour:
   _speed: 6
   _enemyLaserPrefab: {fileID: 9207976248164662980, guid: 351915ec8f36a684681f578099f0f769,
     type: 3}
-  _enemyPrefab2: {fileID: 9003645845258235103, guid: 9e16d80bc7e120441b2409128910771c,
-    type: 3}
   _points: 100

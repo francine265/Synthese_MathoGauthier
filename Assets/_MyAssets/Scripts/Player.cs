@@ -7,8 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed = 10f;
     [SerializeField] private GameObject _laserPrefab = default;
-    //[SerializeField] private GameObject _lasercomboPrefab = default;
-   // [SerializeField] private GameObject _triplelaserPrefab = default;
+      [SerializeField] private GameObject _triplelaserPrefab = default;
     [SerializeField] private float _fireRate = 0.5f; // cadence de tire
                                                      //   [SerializeField] private GameObject _explosionPrefab = default;
                                                      //    [SerializeField] private AudioClip _laserSound = default;*/
@@ -55,7 +54,7 @@ public class Player : MonoBehaviour
             }
              else
             {
-                  //  Instantiate(_lasercomboPrefab, (transform.position + new Vector3(0f, 3.5f, 0f)), Quaternion.identity);
+                    Instantiate(_triplelaserPrefab, (transform.position + new Vector3(0f, 3.5f, 0f)), Quaternion.identity);
             }
 
         }
@@ -91,7 +90,7 @@ public class Player : MonoBehaviour
             //  uIManager.ChangeLivesDisplayImage(_viesJoueurs);
         
 
-         }
+            }
             else
             {
                 _shield.SetActive(false);
@@ -106,13 +105,11 @@ public class Player : MonoBehaviour
                 //    Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
-     
         }
         
          public void PowerTripleShot()
          {
              _isTripleActive = true;
-        BarreDevie.valeur += 10;
              StartCoroutine(Triple());
 
          }

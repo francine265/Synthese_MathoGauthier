@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject _prefabEnemy = default;
-  //  [SerializeField] private GameObject _prefabEnemy2 = default;
-  //  [SerializeField] private GameObject _prefabEnemy3 = default;
+    [SerializeField] private GameObject _prefabEnemy2 = default;
+    [SerializeField] private GameObject _prefabEnemy3 = default;
     // [SerializeField] private GameObject[] _prefabEnemy = default;
     [SerializeField] private GameObject[] _listePUPrefabs = default;
     [SerializeField] private GameObject _enemyContainer = default;
@@ -35,11 +35,10 @@ public class SpawnManager : MonoBehaviour
             Vector3 posSpawn = new Vector3(Random.Range(-8.5f, 8.5f), 7f, 0f);
             Vector3 posSpawn2 = new Vector3(Random.Range(-8.5f, 8.5f), 7f, 0f);
             GameObject newEnemy = Instantiate(_prefabEnemy, posSpawn, Quaternion.identity);
-          //  GameObject newEnemy2 = Instantiate(_prefabEnemy2, posSpawn2, Quaternion.identity);
-          //  GameObject newEnemy3 = Instantiate(_prefabEnemy3, posSpawn2, Quaternion.identity);
+            GameObject newEnemy2 = Instantiate(_prefabEnemy2, posSpawn2, Quaternion.identity);
+            GameObject newEnemy3 = Instantiate(_prefabEnemy3, posSpawn2, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(6f);
-
         }
 
     }

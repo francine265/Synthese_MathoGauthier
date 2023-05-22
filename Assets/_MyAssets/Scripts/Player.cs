@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
                 _shield.SetActive(false);
             }
           
-            if (BarreDevie.valeur ==0)
+            if (BarreDevie.valeur == 0)
             {
                 SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
                 //même chose de facon différente

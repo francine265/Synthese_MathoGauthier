@@ -112,19 +112,28 @@ public class UIManager : MonoBehaviour
     }
         public void ChargerInformations()
     {
-        if(infoActif = false)
+      if( !_panneauInfo.activeSelf )
         {
         _panneauInfo.SetActive(true);
         }
         else
-         {
+        {
         _panneauInfo.SetActive(false);
         }
         
     }
     public void ChargerReglages()
     {
+        
+
+         if( !_panneauReglages.activeSelf )
+        {
         _panneauReglages.SetActive(true);
+        }
+        else
+        {
+        _panneauReglages.SetActive(false);
+        }
     }
     IEnumerator FinPartie()
     {

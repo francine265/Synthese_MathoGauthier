@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 public class FinPartie : MonoBehaviour
 {
     [SerializeField] TMP_Text _txtPointage = default;
 
     [SerializeField] TMP_Text _txtMeilleur = default;
+    [SerializeField] private GameObject _txtSaisie = default;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,15 @@ public class FinPartie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Permet de redémarrer la partie ou se déplacer au menu de départ à la fin de la partie
+        if (Input.GetKeyDown(KeyCode.R) )
+        {
+            SceneManager.LoadScene(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+
     }
 }

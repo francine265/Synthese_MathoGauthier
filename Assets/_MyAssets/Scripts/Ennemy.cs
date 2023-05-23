@@ -35,7 +35,7 @@ public class Ennemy : MonoBehaviour
                 _fireRate = Random.Range(1f, 3f);
                 _canFire = Time.time + _fireRate;
                 Instantiate(_enemyLaserPrefab, transform.position + new Vector3(0f, -0.9f, 0f), Quaternion.identity);
-                Vector3 posSpawn2 = new Vector3(Random.Range(-8.5f, 8.5f), 7f, 0f);
+                Vector3 posSpawn2 = new Vector3(Random.Range(0, 8.5f), 7f, 0f);
                 Instantiate(_enemyPrefab2, posSpawn2, Quaternion.identity);
             }
         }

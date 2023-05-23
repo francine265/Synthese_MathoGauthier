@@ -9,13 +9,13 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _laserPrefab = default;
       [SerializeField] private GameObject _triplelaserPrefab = default;
     [SerializeField] private float _fireRate = 0.5f; // cadence de tire
-                                                     //   [SerializeField] private GameObject _explosionPrefab = default;
+                                                 //      [SerializeField] private GameObject _explosionPrefab = default;
                                                      //    [SerializeField] private AudioClip _laserSound = default;*/
 
     private float _canFire = -1f;// le temps entre les tires
      private bool _isTripleActive = false;
                                    private float _cadenceInitiale;
-                                 //  private Animator _anim;
+                                //  private Animator _anim;
 
       private GameObject _shield;
 
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         BarreDevie.valeur = 100;
         _cadenceInitiale = _fireRate;
           _shield = transform.GetChild(4).gameObject;
-        //   _anim = GetComponent<Animator>();
+         //  _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
             {
                     Instantiate(_triplelaserPrefab, (transform.position + new Vector3(0f, 3.5f, 0f)), Quaternion.identity);
             }
-
+            
         }
     }
 
@@ -104,18 +104,19 @@ public class Player : MonoBehaviour
                 //SpawnManager spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
                 spawnManager.FinPartie();
                uiManager.GameOverSequence();
-                //    Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+              //     Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }
-        
-         public void PowerTripleShot()
-         {
-             _isTripleActive = true;
-             StartCoroutine(Triple());
 
-         }
-         IEnumerator Triple()
+    public void PowerTripleShot()
+    {
+        _isTripleActive = true;
+        BarreDevie.valeur += 10;
+        StartCoroutine(Triple());
+
+    }
+    IEnumerator Triple()
          {
              yield return new WaitForSeconds(5f);
              _isTripleActive = false;

@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion : MonoBehaviour
+public class Explosion1 : MonoBehaviour
   
 
 {
-   // [SerializeField] private AudioClip _sonExplosion = default;
+  //  [SerializeField] private AudioClip _sonExplosion = default;
     // Start is called before the first frame update
     void Start()
     {
-     //   AudioSource.PlayClipAtPoint(_sonExplosion, Camera.main.transform.position, 0.4f);
+    //    AudioSource.PlayClipAtPoint(_sonExplosion, Camera.main.transform.position, 0.4f);
         
     }
 
